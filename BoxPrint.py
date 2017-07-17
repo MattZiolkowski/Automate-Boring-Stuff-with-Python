@@ -1,3 +1,6 @@
+#! python3
+# Program prints out the "boxes" out of symbols- the real purpose is to introduce user to usage of try and exeption mode.
+
 def boxPrint(symbol, width, height):
     if len(symbol) != 1:
         raise Exception('Symbol must be a single character')
