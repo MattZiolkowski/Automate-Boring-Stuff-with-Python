@@ -1,6 +1,6 @@
 #! python3
 
-#This program copies .jpg files in the entire folder directory to a new location
+# This program copies .jpg files in the entire folder directory to a new location.
 
 import shutil
 import os
