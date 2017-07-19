@@ -1,13 +1,13 @@
 #! python3
 # ImgurPhotoDownload.py aims to download all the searched pictures displayed on Imgur.com.
-# Program does the bulk of the task. Still needs some polishing.
+# Program does the bulk of the task. Still needs some polishing. Keep in mind it's beginners work.
 # At the moment it downloads only minature of the images.
 
 import requests, bs4, os
 
 # Insert searched phrase into imgur search engine.
 
-searchInput = input(str('Search and download all Imgur images: '))
+searchInput = input(str('Search for images to download (type phrase): '))
 url= r'http://imgur.com/search/score?q=' + searchInput
 
 # Parse search result page to get src of each photo to download.
@@ -37,7 +37,7 @@ for i in range(len(elemImg)):
     source = str(r'http:'+(elemImg[i].get('src')))
     print('Saving ' + source + ' into ' + os.getcwd())
     JPG = requests.get(source)
-    picfile = open(str(searchInput+str(counter)+'.jpg'), 'wb')
+    picfile = open(str(searchInput+str(counter)+'.jpg'), 'wb') # Create file name from search phrase and ascending number.
     for chunk in JPG.iter_content(100000):
          picfile.write(chunk)
     counter += 1
